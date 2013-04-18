@@ -19,7 +19,7 @@ namespace DDRUsbPadDriver {
     public partial class MainWindow : Window {
         private DancePadDriver _driver;
 
-        private SolidColorBrush _pressedBrush = new SolidColorBrush(Colors.DarkGoldenrod);
+        private SolidColorBrush _pressedBrush = new SolidColorBrush(Colors.DarkRed);
         private SolidColorBrush _upBrush = new SolidColorBrush(Colors.DarkBlue);
 
         public MainWindow() {
