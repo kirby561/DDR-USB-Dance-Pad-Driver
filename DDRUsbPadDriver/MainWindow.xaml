@@ -1,0 +1,30 @@
+﻿<Window x:Class="DDRUsbPadDriver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DDR Dance Pad Driver" Height="350" Width="525" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+            <Label Foreground="White" Content="Ports: " />
+            <ComboBox x:Name="cmbPorts" SelectionChanged="cmbPorts_SelectionChanged" />
+        </StackPanel>
+        
+        <Button x:Name="_btnUp" Foreground="White" Content="Up" Grid.Row="1" Grid.Column="1" />
+        <Button x:Name="_btnLeft" Foreground="White" Content="Left" Grid.Row="2" Grid.Column="0" />
+        <Button x:Name="_btnRight" Foreground="White" Content="Right" Grid.Row="2" Grid.Column="2" />
+        <Button x:Name="_btnDown" Foreground="White" Content="Down" Grid.Row="3" Grid.Column="1" />
+        <Button x:Name="_btnEscape" Foreground="White" Margin="5"  Content="Escape" Grid.Row="1" Grid.Column="0" />
+        <Button x:Name="_btnEnter" Foreground="White" Margin="5" Content="Enter" Grid.Row="1" Grid.Column="2" />
+    </Grid>
+</Window>
