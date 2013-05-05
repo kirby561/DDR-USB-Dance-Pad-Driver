@@ -71,6 +71,8 @@ namespace DDRUsbPadDriver {
         /// </summary>
         /// <returns>The name of the currently selected port.</returns>
         public String GetPortName() {
+            if (_port == null)
+                return "";
             return _port.PortName;
         }
 
