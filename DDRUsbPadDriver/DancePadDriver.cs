@@ -6,6 +6,7 @@ using System.IO.Ports;
 using KeyStrokeEmulator;
 using System.Windows;
 using System.Threading;
+using SerialPortTester;
 
 namespace DDRUsbPadDriver {
     public delegate void PortDataChangedEventHandler(int[] states);
@@ -37,15 +38,6 @@ namespace DDRUsbPadDriver {
         /// <param name="onPortDataChangedEventHandler">The event handler to call when the list of buttons down changes.</param>
         public void Initialize(PortDataChangedEventHandler onPortDataChangedEventHandler) {
             _ports = SerialPort.GetPortNames();
-            if (_ports.Length > 0) {
-                _port = new SerialPort(_ports[_ports.Length - 1]);
-                _port.BaudRate = 9600;
-                _port.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);
-                _port.Open();
-                _port.DiscardInBuffer();
-
-                Console.WriteLine("Initialized with com port: " + _ports[0]);
-            }
 
             _portStateChangedCallback = onPortDataChangedEventHandler;
         }
@@ -143,7 +135,9 @@ namespace DDRUsbPadDriver {
         /// </summary>
         /// <param name="portName">The name of the port to change to.</param>
         public void ChangePort(string portName) {
-            ClosePort();
+            if (_port != null && _port.IsOpen)
+                ClosePort();
+
             _port = new SerialPort(portName);
             _port.BaudRate = 9600;
             _port.DataReceived += new SerialDataReceivedEventHandler(onPortDataReceived);

@@ -1,8 +1,8 @@
-// The pins to use
-int g_UpButtonPin =  2;
-int g_DownButtonPin =  3;
-int g_LeftButtonPin =  4;
-int g_RightButtonPin =  5;
+// The pins to use.  On the VGA cable, 3 is ground. 
+int g_UpButtonPin =  2; 	// VGA Pin 14
+int g_DownButtonPin =  3; 	// VGA Pin 13
+int g_LeftButtonPin =  4; 	// VGA Pin 12
+int g_RightButtonPin =  5; 	// VGA Pin 11
 int g_XButtonPin =  6;
 int g_OButtonPin =  7;
 
@@ -38,6 +38,6 @@ void loop() {
   }
   Serial.println();
   Serial.flush();
-  delay(100);
+  delay(10);
 }
 
