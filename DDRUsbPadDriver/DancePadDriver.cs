@@ -181,8 +181,10 @@ namespace DDRUsbPadDriver {
         ///     Blocks until the port is closed.
         /// </summary>
         public void Stop() {
-            _port.DataReceived -= new SerialDataReceivedEventHandler(onPortDataReceived);
-            ClosePort();
+            if (_port != null && _port.IsOpen) {
+                _port.DataReceived -= new SerialDataReceivedEventHandler(onPortDataReceived);
+                ClosePort();
+            }
         }
     }
 }
