@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO.Ports;
 using KeyStrokeEmulator;
 using System.Windows;
 using System.Threading;
-using SerialPortTester;
 
 namespace DDRUsbPadDriver {
     public delegate void PortDataChangedEventHandler(int[] states);
